@@ -15,9 +15,7 @@ export default class BigForm extends Component {
     }
 
     stringifyValues() {
-        return this.state.checked.map((check, index) => {
-            return ` ${index} : ${check}`
-        }).toString();
+        return this.state.checked.reduce((acum, check, index) => acum+' '+index+':'+check, '');
     }
 
     render() {
@@ -30,7 +28,7 @@ export default class BigForm extends Component {
                         return React.cloneElement(child, {
                             onCheck: () => this.checkboxOnCheck(id),
                             checked: this.state.checked[id],
-                            id,
+                            id
                         });
                     })
                 }
