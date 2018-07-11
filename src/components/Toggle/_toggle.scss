@@ -1,0 +1,46 @@
+$default: 'left';
+$opposite: 'right';
+$btnWidth: 100px;
+
+@mixin transitionAside() {
+    transition-property: background-color float;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes toggle {
+    from {
+        background-color: #fff;
+        float: $default;
+        @include transitionAside;
+    }
+
+    to {
+        background-color: rgb(37, 14, 240);
+        float: $opposite;
+        @include transitionAside;
+    }
+}
+
+.toggle{
+    &-btn {
+        width: $btnWidth;
+        height: $btnWidth / 4;
+        outline: 1px solid #000;
+        overflow: hidden;
+        &__box {
+            width: $btnWidth / 2;
+            height: $btnWidth / 4;
+            animation-duration: 3s;
+            animation-name: toggle;
+            animation-iteration-count: infinite;
+        }
+/*         &__box-active {
+            width: $btnWidth / 2;
+            height: $btnWidth / 4;
+            background-color: rgb(37, 14, 240);
+            float: $opposite;
+            @include transitionAside;
+        } */
+    }
+}
