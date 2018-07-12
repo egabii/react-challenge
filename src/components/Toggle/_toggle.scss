@@ -21,7 +21,12 @@ $btnWidth: 100px;
         @include transitionAside;
     }
 }
-
+.radiogroup {
+    &__item {
+        float: right;
+    }
+}
+/* TODO: toggle style - pending implementation
 .toggle{
     &-btn {
         width: $btnWidth;
@@ -31,16 +36,13 @@ $btnWidth: 100px;
         &__box {
             width: $btnWidth / 2;
             height: $btnWidth / 4;
-            animation-duration: 3s;
-            animation-name: toggle;
-            animation-iteration-count: infinite;
         }
-/*         &__box-active {
+        &__box-active {
             width: $btnWidth / 2;
             height: $btnWidth / 4;
             background-color: rgb(37, 14, 240);
             float: $opposite;
             @include transitionAside;
-        } */
+        }
     }
-}
+} */

@@ -1,10 +1,9 @@
-/* import React, { Component } from 'react';
-
-const Text = (label) => (<h3>{label}</h3>);
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class ItemsList extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
@@ -15,18 +14,8 @@ export default class ItemsList extends Component {
                     {
                         this.props.items.map(item => {
                             return (
-                                <li>
-                                    <Text label={item.text} />
-                                    {/*
-                                    <StatusTool >
-                                        <div class="resolve">
-                                            <Checkbox />
-                                        </div>
-                                        <div class="btn-toggle">
-                                            <Toggle />
-                                        </div>
-                                    </StatusTool>
-                                    *!/}
+                                <li key={item.id}>
+                                    { this.props.children}
                                 </li>
                             );
                         })
@@ -35,4 +24,9 @@ export default class ItemsList extends Component {
             </div>
         );
     }
-} */
+}
+
+ItemsList.propTypes = {
+    items: PropTypes.array.isRequired,
+    children: PropTypes.node.isRequired
+};
