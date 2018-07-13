@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 
 // STYLES
-
+import 'bootstrap/scss/bootstrap.scss';
 import 'normalize.css';
 import './styles/app.scss';
 

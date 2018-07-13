@@ -7,8 +7,10 @@ body {
     align-items: center;
     display: flex;
     flex-flow: column;
-    height: 100vh;
     justify-content: center;
+    &.flex-start {
+        align-items: flex-start;
+    }
     .form {
         background-color: #647684fc;
         padding: 20px;
