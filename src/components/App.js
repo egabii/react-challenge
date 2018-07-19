@@ -1,42 +1,47 @@
 import React, { Component, Fragment } from 'react';
 import logo from '../logo.png';
-
+import PropTypes from 'prop-types';
 // SERVICES
-import {TodoService} from './services/TodoService';
+import { TodoService } from '../services/TodoService';
 
-const todoService = new TodoService();
 // COMPONENTS
 import ItemsList from './Item/ItemsList';
 
-const Header = () => {
+const Header = ({ logo, title }) => {
     return (
         <div className='container'>
             <img className='logo' src={logo} />
-            <h1 className='title'>React Starter</h1>
+            <h1 className='title'>{title}</h1>
         </div>
     );
 };
 
+Header.propTypes = {
+    logo: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+};
+
 export default class App extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             todos: []
         };
     }
 
-    componentDidMount(){
-        todoService.getTodos()
-        .then(todoModels => {
-            this.setState({ todos: todoModels });
-        });
+    componentDidMount() {
+        TodoService.fetchTodos()
+            .then(todoModels => {
+                this.setState({ todos: todoModels });
+            })
+            .catch(err => console.log(err));
     }
 
     render() {
         return (
             <Fragment>
-                {Header()}
+                <Header logo={logo} title={'React Starter'} />
                 <ItemsList items={this.state.todos} />
             </Fragment>
         );

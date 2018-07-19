@@ -1,22 +1,22 @@
-class Todo {
+export default class Todo {
 
-    contructor(data){
-        this.data = {...data};
+    contructor(data) {
+        this.data = JSON.parse(JSON.stringify(data));
     }
 
-    turnOn(){
-        this.data.active = !this.isResolve() && !this.data.active ;
+    turnOn() {
+        this.data.active = !this.isResolve() && !this.data.active;
     }
 
-    toggleResolve(){
+    toggleResolve() {
         this.data.resolve = !this.data.resolve;
     }
 
-    get isResolve(){
+    get isResolve() {
         return this.data.resolve;
     }
 
-    get isActive(){
+    get isActive() {
         return this.data.active;
     }
 }
